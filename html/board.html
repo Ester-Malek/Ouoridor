@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Quoridor</title>
+    <link rel="stylesheet" href="/css/board.css">
+</head>
+<body>
+<div class="game-container">
+    <h1>QUORIDOR</h1>
+
+        <!-- לוח מצב חומות -->
+    <div class="player-wall-counter player1-counter">
+        <h2>שחקן 2</h2>
+        <h3>:נותרו</h3>
+        <p id="p2-walls">10</p>
+        <h3>חומות</h3>
+
+    </div>
+
+    <div class="player-wall-counter player2-counter">
+        <h2>שחקן 1</h2>
+        <h3>:נותרו</h3>
+        <p id="p1-walls">10</p>
+        <h3>חומות</h3>
+    </div>
+
+
+    <div class="turn-indicator">
+        תור נוכחי:
+        <span id="current-player" class="player-indicator player1-indicator">
+            שחקן ראשון
+        </span>
+    </div>
+
+    <div class="turn-counter">
+        מספר תורות:
+        <span id="turn-count">0</span>
+    </div>
+
+
+    <div id="board" class="board"></div>
+</div>
+
+<script src="/js/board.js"></script>
+</body>
+</html>

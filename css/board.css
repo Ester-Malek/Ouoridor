@@ -1,0 +1,252 @@
+/* =================================
+   ROOT COLORS & VARIABLES
+================================= */
+:root {
+    /* Backgrounds */
+    --bg1: #0f0f1f;
+    --bg2: #1a1a35;
+    --board-bg: #141428;
+
+    /* Cell */
+    --cell-color1: #1f1f3d;
+    --cell-color2: #2a2a4d;
+    --glass: rgba(255,255,255,0.08);
+
+    /* Players */
+    --p1-main: #ff3cac;
+    --p1-glow: #ff6ec7;
+    --p2-main: #00f5ff;
+    --p2-glow: #00c3ff;
+
+    /* Sizes */
+    --cell-size: clamp(32px, 6vmin, 60px);
+    --wall-thickness: calc(var(--cell-size) / 5);
+}
+
+
+/* =================================
+   BODY & LAYOUT
+================================= */
+body {
+    margin: 0;
+    font-family: 'Segoe UI', sans-serif;
+    background: linear-gradient(90deg, var(--p1-main), var(--p2-main));
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+}
+
+.game-container {
+    text-align: center;
+    color: white;
+        background: linear-gradient(90deg, var(--p1-main), var(--p2-main));
+
+    padding: 40px;
+}
+
+h1 {
+    font-size: 80px;
+    letter-spacing: 4px;
+    margin-bottom: 20px;
+    color: white;
+}
+
+
+/* =================================
+   GAME INFO PANEL
+================================= */
+.game-info {
+    background: var(--glass)   ;
+    backdrop-filter: blur(12px);
+    padding: 15px 25px;
+    border-radius: 16px;
+    margin-bottom: 25px;
+    box-shadow: 0 0 25px rgba(0,0,0,0.6);
+}
+
+.turn-indicator,
+.turn-counter {
+    margin: 8px 0;
+    font-size: 18px;
+}
+
+.player-indicator {
+    font-weight: bold;
+    padding: 6px 16px;
+    border-radius: 25px;
+    transition: all 0.4s ease;
+}
+
+/* Glow animation for active player */
+@keyframes pulseGlow {
+    0% { box-shadow: 0 0 5px currentColor; }
+    50% { box-shadow: 0 0 20px currentColor; }
+    100% { box-shadow: 0 0 5px currentColor; }
+}
+
+.player1-indicator {
+    color: var(--p1-main);
+    background: rgba(255,60,172,0.15);
+    animation: pulseGlow 2s infinite;
+}
+
+.player2-indicator {
+    color: var(--p2-main);
+    background: rgba(0,245,255,0.15);
+    animation: pulseGlow 2s infinite;
+}
+
+
+/* =================================
+   BOARD & ROWS
+================================= */
+.board {
+    display: flex;
+    flex-direction: column;
+    gap: 6px;
+    background: var(--board-bg);
+    padding: 20px;
+    border-radius: 20px;
+    box-shadow: 0 0 40px rgba(0,0,0,0.7);
+}
+
+.row,
+.h-wall-row {
+    display: flex;
+    gap: 6px;
+}
+
+
+/* =================================
+   CELLS (Upgraded Colors)
+================================= */
+.cell {
+    width: var(--cell-size);
+    height: var(--cell-size);
+    border-radius: 10px;
+    position: relative;
+    transition: all 0.2s ease;
+
+    /* Gradient & depth */
+    background: linear-gradient(145deg, var(--cell-color2), var(--cell-color1));
+    box-shadow:
+        inset 0 3px 6px rgba(255,255,255,0.1),
+        0 3px 8px rgba(0,0,0,0.4);
+}
+
+.cell:hover {
+    transform: scale(1.08);
+    box-shadow:
+        inset 0 3px 6px rgba(255,255,255,0.15),
+        0 0 18px rgba(255,255,255,0.2);
+    cursor: pointer;
+}
+
+
+/* =================================
+   PLAYERS (Neon Style)
+================================= */
+.player::after {
+    content: "";
+    position: absolute;
+    width: 65%;
+    height: 65%;
+    border-radius: 50%;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+}
+
+.player1::after {
+    background: radial-gradient(circle, var(--p1-glow), var(--p1-main));
+    box-shadow: 0 0 20px var(--p1-main);
+}
+
+.player2::after {
+    background: radial-gradient(circle, var(--p2-glow), var(--p2-main));
+    box-shadow: 0 0 20px var(--p2-main);
+}
+
+
+/* =================================
+   WALLS
+================================= */
+.v-wall {
+    width: var(--wall-thickness);
+    height: var(--cell-size);
+    transition: 0.2s;
+}
+
+.h-wall {
+    width: var(--cell-size);
+    height: var(--wall-thickness);
+    transition: 0.2s;
+}
+
+.wall-gap {
+    width: var(--wall-thickness);
+}
+
+.player1-wall {
+    background: var(--p1-main);
+    box-shadow: 0 0 10px var(--p1-main);
+}
+
+.player2-wall {
+    background: var(--p2-main);
+    box-shadow: 0 0 10px var(--p2-main);
+}
+
+.v-wall:hover,
+.h-wall:hover {
+    background: rgba(255,255,255,0.2);
+    cursor: pointer;
+}
+
+
+.player-wall-counter {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    width: 120px;
+    padding: 20px;
+    text-align: center;
+    border-radius: 15px;
+    background: rgba(255,255,255,0.08);
+    backdrop-filter: blur(10px);
+    box-shadow: 0 0 20px rgba(0,0,0,0.5);
+    font-family: 'Segoe UI', sans-serif;
+    color: white;
+}
+
+/* =================================
+   מספר הקירות שנותרו לכל שחקן
+================================= */
+
+.player1-counter {
+    left: 20px;
+    border-left: 4px solid var(--p1-main);
+}
+
+.player2-counter {
+    right: 20px;
+    border-right: 4px solid var(--p2-main);
+}
+
+.player-wall-counter h2 {
+    margin: 0 0 10px 0;
+    font-size: 18px;
+    color: rgb(16, 16, 63);
+}
+
+.player-wall-counter h3 {
+    margin: 0 0 10px 0;
+    font-size: 18px;
+}
+
+.player-wall-counter p {
+    font-size: 28px;
+    font-weight: bold;
+    color: #473d72;
+}

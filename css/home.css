@@ -1,0 +1,74 @@
+/* =================================
+   ROOT COLORS
+================================= */
+:root {
+    --bg1: #0f0f1f;
+    --bg2: #1a1a35;
+
+    --p1-main: #ff3cac;
+    --p1-glow: #ff6ec7;
+    --p2-main: #00f5ff;
+    --p2-glow: #00c3ff;
+
+    --glass: rgba(255,255,255,0.08);
+}
+
+/* =================================
+   BODY
+================================= */
+body {
+    margin: 0;
+    font-family: 'Segoe UI', sans-serif;
+    background: radial-gradient(circle at top left, var(--bg2), var(--bg1));
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+}
+
+/* =================================
+   WELCOME CONTAINER
+================================= */
+.welcome-container {
+    text-align: center;
+    background: var(--glass);
+    backdrop-filter: blur(12px);
+    padding: 50px 40px;
+    border-radius: 20px;
+    box-shadow: 0 0 40px rgba(0,0,0,0.7);
+}
+
+.welcome-container h1 {
+    font-size: 42px;
+    margin-bottom: 20px;
+    background: linear-gradient(90deg, var(--p1-main), var(--p2-main));
+    /*-webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;*/
+}
+
+.welcome-container p {
+    font-size: 18px;
+    margin-bottom: 30px;
+    color: #ddd;
+}
+
+/* =================================
+   START BUTTON
+================================= */
+.start-btn {
+    padding: 15px 35px;
+    font-size: 20px;
+    font-weight: bold;
+    border: none;
+    border-radius: 30px;
+    cursor: pointer;
+    background: linear-gradient(45deg, var(--p1-main), var(--p2-main));
+    color: white;
+    box-shadow: 0 0 15px rgba(255,60,172,0.5), 0 0 20px rgba(0,245,255,0.4);
+    transition: all 0.3s ease;
+}
+
+.start-btn:hover {
+    transform: scale(1.1);
+    box-shadow: 0 0 25px rgba(255,60,172,0.7), 0 0 30px rgba(0,245,255,0.6);
+}

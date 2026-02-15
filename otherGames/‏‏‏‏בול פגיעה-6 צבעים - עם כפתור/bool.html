@@ -1,0 +1,207 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>משחק בול פגיעה</title>
+    <link rel="stylesheet" href="./bool.css">
+</head>
+<body>
+    <script defer src="./bool.js"></script>
+    <header class="game-header">
+    <div class="color-group">
+        <div class="color-box" style="background-color: red;" onclick="pressColor(this)"></div>
+        <div class="color-box" style="background-color: orange;" onclick="pressColor(this)"></div>
+        <div class="color-box" style="background-color: yellow;" onclick="pressColor(this)"></div>
+        
+    </div>
+
+    <h1>משחק בול פגיעה</h1>
+
+    <div class="color-group">
+        <div class="color-box" style="background-color: green;" onclick="pressColor(this)"></div>
+        <div class="color-box" style="background-color: blue;" onclick="pressColor(this)"></div>
+        <div class="color-box" style="background-color: pink;" onclick="pressColor(this)"></div>
+    </div>
+</header>
+<div id="attempts-counter" class="counter-box">
+    ניחושים: <span id="current-attempt">0</span> / 12
+</div>
+    <div class="container">  
+    <div class="game-layout">
+        <button id="undo-btn" class="side-btn" onclick="undoLastMove()">↩️ ביטול</button>
+         <button id="submit-btn" class="side-btn" onclick="submitGuess()">✅ אישור</button>
+    <div class="boardGame">
+    <div class="chosenLine">
+            <div class="oneChosen"></div>
+            <div class="oneChosen"></div>
+            <div class="oneChosen"></div>
+            <div class="oneChosen"></div>
+    </div>
+    <div class="gessLine">
+        <div class="feedback">
+            <div class="small-circle"></div>
+            <div class="small-circle"></div>
+            <div class="small-circle"></div>
+            <div class="small-circle"></div>
+        </div>
+        <div class="oneGess"></div>
+        <div class="oneGess"></div>
+        <div class="oneGess"></div>
+        <div class="oneGess"></div>
+    </div>
+ 
+    <div class="gessLine">
+        <div class="feedback">
+            <div class="small-circle"></div>
+            <div class="small-circle"></div>
+            <div class="small-circle"></div>
+            <div class="small-circle"></div>
+        </div>
+        <div class="oneGess"></div>
+        <div class="oneGess"></div>
+        <div class="oneGess"></div>
+        <div class="oneGess"></div>
+    </div>
+
+    <div class="gessLine">
+        <div class="feedback">
+            <div class="small-circle"></div>
+            <div class="small-circle"></div>
+            <div class="small-circle"></div>
+            <div class="small-circle"></div>
+        </div>
+        <div class="oneGess"></div>
+        <div class="oneGess"></div>
+        <div class="oneGess"></div>
+        <div class="oneGess"></div>
+    </div>
+    <div class="gessLine">
+        <div class="feedback">
+            <div class="small-circle"></div>
+            <div class="small-circle"></div>
+            <div class="small-circle"></div>
+            <div class="small-circle"></div>
+        </div>
+        <div class="oneGess"></div>
+        <div class="oneGess"></div>
+        <div class="oneGess"></div>
+        <div class="oneGess"></div>
+    </div>
+ 
+    <div class="gessLine">
+        <div class="feedback">
+            <div class="small-circle"></div>
+            <div class="small-circle"></div>
+            <div class="small-circle"></div>
+            <div class="small-circle"></div>
+        </div>
+        <div class="oneGess"></div>
+        <div class="oneGess"></div>
+        <div class="oneGess"></div>
+        <div class="oneGess"></div>
+    </div>
+
+    <div class="gessLine">
+        <div class="feedback">
+            <div class="small-circle"></div>
+            <div class="small-circle"></div>
+            <div class="small-circle"></div>
+            <div class="small-circle"></div>
+        </div>
+        <div class="oneGess"></div>
+        <div class="oneGess"></div>
+        <div class="oneGess"></div>
+        <div class="oneGess"></div>
+    </div>
+    <div class="gessLine">
+        <div class="feedback">
+            <div class="small-circle"></div>
+            <div class="small-circle"></div>
+            <div class="small-circle"></div>
+            <div class="small-circle"></div>
+        </div>
+        <div class="oneGess"></div>
+        <div class="oneGess"></div>
+        <div class="oneGess"></div>
+        <div class="oneGess"></div>
+    </div>
+ 
+    <div class="gessLine">
+        <div class="feedback">
+            <div class="small-circle"></div>
+            <div class="small-circle"></div>
+            <div class="small-circle"></div>
+            <div class="small-circle"></div>
+        </div>
+        <div class="oneGess"></div>
+        <div class="oneGess"></div>
+        <div class="oneGess"></div>
+        <div class="oneGess"></div>
+    </div>
+
+    <div class="gessLine">
+        <div class="feedback">
+            <div class="small-circle"></div>
+            <div class="small-circle"></div>
+            <div class="small-circle"></div>
+            <div class="small-circle"></div>
+        </div>
+        <div class="oneGess"></div>
+        <div class="oneGess"></div>
+        <div class="oneGess"></div>
+        <div class="oneGess"></div>
+    </div>
+    <div class="gessLine">
+        <div class="feedback">
+            <div class="small-circle"></div>
+            <div class="small-circle"></div>
+            <div class="small-circle"></div>
+            <div class="small-circle"></div>
+        </div>
+        <div class="oneGess"></div>
+        <div class="oneGess"></div>
+        <div class="oneGess"></div>
+        <div class="oneGess"></div>
+    </div>
+ 
+    <div class="gessLine">
+        <div class="feedback">
+            <div class="small-circle"></div>
+            <div class="small-circle"></div>
+            <div class="small-circle"></div>
+            <div class="small-circle"></div>
+        </div>
+        <div class="oneGess"></div>
+        <div class="oneGess"></div>
+        <div class="oneGess"></div>
+        <div class="oneGess"></div>
+    </div>
+
+    <div class="gessLine">
+        <div class="feedback">
+            <div class="small-circle"></div>
+            <div class="small-circle"></div>
+            <div class="small-circle"></div>
+            <div class="small-circle"></div>
+        </div>
+        <div class="oneGess"></div>
+        <div class="oneGess"></div>
+        <div class="oneGess"></div>
+        <div class="oneGess"></div>
+    </div>
+</div>
+<div id="endGameModal" class="modal">
+    <div class="modal-content">
+        <h2 id="modalTitle"></h2>
+        <p id="modalMessage"></p>
+        <button onclick="location.reload()">שחק שוב</button>
+    </div>
+</div>
+</div>
+</div>
+</body>
+</html>
+
+
+

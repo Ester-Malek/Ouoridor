@@ -1,0 +1,85 @@
+:root {
+    --primary-color: #ff3cac;
+    --secondary-color: #00f5ff;
+    --bg1: #474779;
+    --bg2: #1a1a35;
+    --glass: rgba(255, 255, 255, 0.08);
+}
+
+body {
+    margin: 0;
+    font-family: 'Segoe UI', sans-serif;
+    background: linear-gradient(135deg, var(--primary-color), var(--secondary-color));
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+    color: white;
+}
+
+.landing-container {
+    text-align: center;
+    width: 100%;
+    max-width: 900px;
+    padding: 50px 30px;
+    border-radius: 20px;
+    background: rgb(33, 21, 79)
+    linear-gradient(135deg, var(--bg1), var(--bg2));
+    box-shadow: 0 0 40px rgba(0,0,0,0.7);
+}
+.landing-header h1 {
+    font-size: 100px;
+    margin: 0 0 10px 0;
+
+}
+.landing-header h2 {
+    font-size: 50px;
+    margin: 0 0 10px 0;
+
+}
+
+.highlight {
+    font-size: 70px;
+    color: #ff3cac; /* צבע למילה בלבד */
+    background: none; /* אם רוצים ללא רקע */
+    font-weight: bold; /* אופציונלי – עבה יותר */
+}
+
+.landing-header p {
+    font-size: 40px;
+    margin-bottom: 30px;
+    color: #ddd;
+}
+
+.button-group {
+    display: flex;
+    gap: 15px;
+    justify-content: center;
+}
+
+.landing-btn {
+    flex: 1;
+    padding: 15px;
+    font-size: 18px;
+    font-weight: bold;
+    border: none;
+    border-radius: 25px;
+    cursor: pointer;
+    background: linear-gradient(45deg, var(--primary-color), var(--secondary-color));
+    color: white;
+    box-shadow: 0 0 15px rgba(255,60,172,0.5), 0 0 20px rgba(0,245,255,0.4);
+    transition: all 0.3s ease;
+}
+
+.landing-btn:hover {
+    transform: scale(1.05);
+    box-shadow: 0 0 25px rgba(255,60,172,0.7), 0 0 30px rgba(0,245,255,0.6);
+}
+
+.login-btn {
+    background: linear-gradient(45deg, #00f5ff, #00c3ff);
+}
+
+.signup-btn {
+    background: linear-gradient(45deg, #ff3cac, #ff6ec7);
+}

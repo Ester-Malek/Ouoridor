@@ -1,0 +1,78 @@
+:root {
+    --primary-color: #ff3cac;
+    --secondary-color: #00f5ff;
+    --bg1: #474779;
+    --bg2: #1a1a35;
+    --glass: rgba(255, 255, 255, 0.08);
+}
+
+body {
+    margin: 0;
+    font-family: 'Segoe UI', sans-serif;
+    background: linear-gradient(135deg, var(--bg1), var(--bg2));
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+    color: white;
+}
+
+.player-setup-container {
+    text-align: center;
+    width: 90%;
+    max-width: 500px;
+    padding: 40px;
+    border-radius: 20px;
+    background: rgba(33, 21, 79, 0.85);
+    box-shadow: 0 0 40px rgba(0,0,0,0.7);
+}
+
+.player-setup-container h1 {
+    font-size: 40px;
+    margin-bottom: 10px;
+    color: var(--primary-color);
+}
+
+.player-setup-container p {
+    font-size: 24px;
+    margin-bottom: 30px;
+    color: #ddd;
+}
+
+form {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+}
+
+input[type="text"] {
+    padding: 15px;
+    font-size: 20px;
+    border: none;
+    border-radius: 12px;
+    background: rgba(255,255,255,0.1);
+    color: white;
+    text-align: center;
+}
+
+input[type="text"]::placeholder {
+    color: rgba(255,255,255,0.6);
+}
+
+.start-btn {
+    padding: 15px;
+    font-size: 22px;
+    font-weight: bold;
+    border: none;
+    border-radius: 25px;
+    cursor: pointer;
+    background: linear-gradient(45deg, var(--primary-color), var(--secondary-color));
+    color: white;
+    box-shadow: 0 0 20px rgba(255,60,172,0.5), 0 0 25px rgba(0,245,255,0.4);
+    transition: all 0.3s ease;
+}
+
+.start-btn:hover {
+    transform: scale(1.05);
+    box-shadow: 0 0 30px rgba(255,60,172,0.7), 0 0 35px rgba(0,245,255,0.6);
+}

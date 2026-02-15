@@ -1,0 +1,338 @@
+body {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    background-color: #f0f2f5;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin: 0;
+    padding: 20px;
+}
+
+h1 {
+    color: #333;
+    margin-bottom: 30px;
+    text-shadow: 1px 1px 2px rgba(0,0,0,0.1);
+}
+
+.main-wrapper {
+    background: white;
+    padding: 30px;
+    border-radius: 15px;
+    box-shadow: 0 10px 25px rgba(0,0,0,0.1);
+}
+
+.container {
+    display: flex;
+    gap: 40px;
+    align-items: flex-start;
+}
+
+.boardGame {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    background: #e9ecef;
+    padding: 20px;
+    border-radius: 10px;
+}
+
+.chosenLine {
+    display: flex;
+    justify-content: center;
+    padding: 10px;
+    background-color: #343a40;
+    border-radius: 8px;
+    margin-bottom: 20px;
+}
+
+.oneChosen, .oneGess {
+    width: 45px;
+    height: 45px;
+    border: 2px solid #dee2e6;
+    border-radius: 50%;
+    margin: 0 5px;
+    background-color: #fff;
+    transition: transform 0.2s;
+}
+
+.gessLine {
+    display: flex;
+    align-items: center;
+    gap: 15px;
+}
+
+
+
+/*.slots {
+    display: flex;
+}*/
+
+.feedback {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr); /* יוצר מבנה של 2X2 */
+    gap: 4px;
+    padding: 5px;
+    background: #ced4da;
+    border-radius: 5px;
+    height: fit-content; /* מוודא שהריבוע לא נמתח */
+}
+
+.small-circle {
+    width: 12px;
+    height: 12px;
+    border-radius: 50%;
+    background-color: #adb5bd;
+    border: 1px solid #6c757d;
+}
+
+/*.color-palette {
+    text-align: center;
+}*/
+
+.color-grid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 10px;
+}
+
+.color-box {
+    width: 50px;
+    height: 50px;
+    border-radius: 10px;
+    cursor: pointer;
+    transition: transform 0.2s, box-shadow 0.2s;
+    border: 2px solid transparent;
+}
+
+.color-box:active {
+    transform: scale(0.95);
+}
+
+
+.game-header {
+    display: flex;
+    align-items: center;
+    justify-content: center; /* שומר על הכל במרכז הדף */
+    gap: 30px; /* מרווח בין קבוצות הצבעים לכותרת */
+    width: 100%;
+    margin-bottom: 40px;
+}
+
+.color-group {
+    display: flex;
+    gap: 10px; /* רווח בין ריבוע לריבוע */
+}
+
+.color-box {
+    width: 45px;
+    height: 45px;
+    border-radius: 8px;
+    cursor: pointer;
+    transition: transform 0.2s;
+    border: 1px solid #ccc;
+}
+
+.color-box:hover {
+    transform: scale(1.1);
+}
+
+h1 {
+    margin: 0;
+    font-size: 2.5em;
+    white-space: nowrap; /* מונע מהכותרת לרדת שורה */
+}
+
+
+.counter-box {
+    position: fixed;
+    top: 20px;
+    left: 20px;
+    background-color: #343a40;
+    color: white;
+    padding: 15px 20px;
+    border-radius: 10px;
+    font-size: 1.2rem;
+    font-weight: bold;
+    box-shadow: 0 4px 10px rgba(0,0,0,0.2);
+    z-index: 1000; /* מוודא שזה תמיד מעל הכל */
+    border: 2px solid #ffc107; /* מסגרת זהובה להדגשה */
+}
+
+#current-attempt {
+    color: #ffc107;
+    font-size: 1.5rem;
+}
+
+
+/* רקע החלון הקופץ */
+.modal {
+    display: none; /* מוסתר בהתחלה */
+    position: fixed;
+    z-index: 2000;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0,0,0,0.7); /* רקע חצי שקוף */
+    backdrop-filter: blur(5px); /* טשטוש הרקע */
+    align-items: center;
+    justify-content: center;
+}
+
+/* תוכן החלון */
+.modal-content {
+    background-color: white;
+    padding: 40px;
+    border-radius: 20px;
+    text-align: center;
+    box-shadow: 0 5px 30px rgba(0,0,0,0.3);
+    animation: popIn 0.5s cubic-bezier(0.68, -0.55, 0.27, 1.55);
+}
+
+@keyframes popIn {
+    0% { transform: scale(0.5); opacity: 0; }
+    100% { transform: scale(1); opacity: 1; }
+}
+
+.modal-content h2 {
+    font-size: 2.5rem;
+    margin-bottom: 10px;
+}
+
+.modal-content button {
+    background-color: #28a745;
+    color: white;
+    border: none;
+    padding: 10px 25px;
+    font-size: 1.2rem;
+    border-radius: 10px;
+    cursor: pointer;
+    margin-top: 20px;
+    transition: background 0.3s;
+}
+
+.modal-content button:hover {
+    background-color: #218838;
+}
+
+/* עיצוב למקרה של ניצחון/הפסד */
+.win h2 { color: #28a745; }
+.lose h2 { color: #dc3545; }
+
+
+
+.boardGame {
+    display: flex;
+    flex-direction: column;
+    align-items: center; /* ממרכז את כל הלוח */
+    gap: 20px;
+}
+
+.chosenLine {
+    display: flex;
+    justify-content: center;
+    background-color: #495057; /* צבע כהה יותר לשורת הפתרון */
+    padding: 10px;
+    border-radius: 50px; /* עיצוב מעוגל יותר */
+    border: 3px solid #ced4da;
+    /* הוספת מרווח בצד שמאל כדי להתיישר מעל העיגולים בלבד (ללא הפידבק) */
+    margin-left: 60px; 
+}
+
+.gameRows {
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+}
+
+/* עיצוב נוסף לעיגולי הכותרת כדי שייראו מסתוריים לפני שהם נחשפים */
+.oneChosen {
+    width: 45px;
+    height: 45px;
+    border-radius: 50%;
+    background-color: #343a40;
+    border: 2px solid #6c757d;
+    margin: 0 10px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: white;
+    font-weight: bold;
+}
+
+/* אם תרצה להוסיף סימן שאלה על עיגולי הכותרת */
+.oneChosen::after {
+    content: "?";
+    opacity: 0.5;
+    font-size: 1.5rem;
+    font-weight: bold;
+}   
+
+
+/* עיצוב אזור הכפתורים */
+.controls {
+    margin-top: 20px;
+    display: flex;
+    gap: 15px;
+    justify-content: center;
+}
+
+#undo-btn, #submit-btn {
+    padding: 12px 24px;
+    font-size: 1.1rem;
+    font-weight: bold;
+    border-radius: 12px;
+    cursor: pointer;
+    border: none;
+    transition: transform 0.2s, background-color 0.2s;
+    box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+    margin: 0px 50px;
+    }
+
+#undo-btn {
+    background-color: #f8f9fa;
+    color: #333;
+    border: 2px solid #ddd;
+    
+}
+
+#undo-btn:hover {
+    background-color: #e2e6ea;
+    transform: translateY(-2px);
+}
+
+#submit-btn {
+    background-color: #28a745;
+    color: white;
+}
+
+#submit-btn:hover {
+    background-color: #218838;
+    transform: translateY(-2px);
+}
+
+/* אנימציית אישור שורה */
+@keyframes checkRow {
+    0% { transform: scale(1); }
+    50% { transform: scale(1.05); }
+    100% { transform: scale(1); }
+}
+
+.row-checked {
+    animation: checkRow 0.4s ease-in-out;
+}
+
+/* הגדרת האנימציה של ההארה */
+@keyframes glowPulse {
+    0% { box-shadow: 0 0 5px #28a745; transform: scale(1); }
+    50% { box-shadow: 0 0 20px #28a745; transform: scale(1.02); }
+    100% { box-shadow: 0 0 5px #28a745; transform: scale(1); }
+}
+
+/* הקלאס שנוסיף לכפתור כשהשורה מלאה */
+.ready-to-submit {
+    animation: glowPulse 1.5s infinite ease-in-out;
+    border: 2px solid #fff !important;
+    cursor: pointer;
+}
+

@@ -1,0 +1,137 @@
+<!DOCTYPE html>
+<html lang="he">
+<head>
+<meta charset="UTF-8">
+<title>Quoridor</title>
+
+<style>
+body {
+    margin: 0;
+    font-family: Arial, sans-serif;
+    background: linear-gradient(135deg, #1e1e2f, #2b2b45);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+}
+
+.game-container {
+    text-align: center;
+    color: white;
+}
+
+.board {
+    display: flex;
+    flex-direction: column;
+    gap: 4px;
+    background: #8b5a2b;
+    padding: 15px;
+    border-radius: 15px;
+}
+
+.row, .h-wall-row {
+    display: flex;
+    gap: 4px;
+}
+
+.cell {
+    width: 50px;
+    height: 50px;
+    background: #f0d9b5;
+    border-radius: 6px;
+    position: relative;
+}
+
+.player::after {
+    content: "";
+    position: absolute;
+    width: 30px;
+    height: 30px;
+    border-radius: 50%;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+}
+
+.player1::after { background: red; }
+.player2::after { background: blue; }
+
+.v-wall {
+    width: 10px;
+    height: 50px;
+}
+
+.h-wall {
+    width: 50px;
+    height: 10px;
+}
+
+.wall-gap {
+    width: 10px;
+}
+</style>
+
+</head>
+<body>
+
+<div class="game-container">
+    <h1>QUORIDOR</h1>
+    <div id="board" class="board"></div>
+</div>
+
+<script>
+const board = document.getElementById("board");
+const size = 9;
+
+for (let row = 0; row < size; row++) {
+
+    const rowDiv = document.createElement("div");
+    rowDiv.className = "row";
+
+    for (let col = 0; col < size; col++) {
+
+        const cell = document.createElement("div");
+        cell.className = "cell";
+
+        if (row === 0 && col === 4) {
+            cell.classList.add("player", "player2");
+        }
+
+        if (row === 8 && col === 4) {
+            cell.classList.add("player", "player1");
+        }
+
+        rowDiv.appendChild(cell);
+
+        if (col < size - 1) {
+            const vWall = document.createElement("div");
+            vWall.className = "v-wall";
+            rowDiv.appendChild(vWall);
+        }
+    }
+
+    board.appendChild(rowDiv);
+
+    if (row < size - 1) {
+        const hRow = document.createElement("div");
+        hRow.className = "h-wall-row";
+
+        for (let col = 0; col < size; col++) {
+            const hWall = document.createElement("div");
+            hWall.className = "h-wall";
+            hRow.appendChild(hWall);
+
+            if (col < size - 1) {
+                const gap = document.createElement("div");
+                gap.className = "wall-gap";
+                hRow.appendChild(gap);
+            }
+        }
+
+        board.appendChild(hRow);
+    }
+}
+</script>
+
+</body>
+</html>

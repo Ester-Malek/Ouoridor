@@ -1,0 +1,105 @@
+:root {
+    --primary-color: #ff3cac;
+    --secondary-color: #00f5ff;
+    --bg1: #474779;
+    --bg2: #1a1a35;
+    --glass: rgba(255, 255, 255, 0.08);
+}
+
+/* הורה שמרכז את הטופס */
+body {
+    margin: 0;
+    font-family: 'Segoe UI', sans-serif;
+    background: linear-gradient(135deg, var(--primary-color), var(--secondary-color));
+    display: flex;
+    justify-content: center;  /* מרכז אופקי */
+    align-items: center;      /* מרכז אנכי */
+    min-height: 100vh;
+    color: white;
+}
+
+
+/* הטופס עצמו */
+.form-container {
+    background: linear-gradient(135deg, var(--bg2), var(--bg1));
+    backdrop-filter: blur(12px);
+    padding: 40px 50px;
+    border-radius: 20px;
+    width: 100%;
+    max-width: 450px;      /* רוחב קבוע מתאים לטופס */
+    text-align: center;
+    box-shadow: 0 0 40px rgba(0,0,0,0.7);
+}
+
+.form-container h1 {
+    font-size: 60px;
+     color: var(--primary-color);
+     margin-top: 10px;
+     
+}
+.form-container h2 {
+    font-size: 40px;
+    margin-bottom: 20px;
+    color: var(--primary-color);
+
+}
+.form-container p {
+    font-size: 18px;
+    margin-bottom: 30px;
+
+}
+
+.login-form input {
+    width: 100%;
+    padding: 15px;
+    margin-bottom: 20px;
+    border-radius: 12px;
+    border: none;
+    background: rgba(255,255,255,0.1);
+    color: white;
+    font-size: 16px;
+    transition: all 0.3s ease;
+}
+
+.login-form input::placeholder {
+    color: #bbb;
+}
+
+.login-form input:focus {
+    outline: none;
+    background: rgba(255,255,255,0.15);
+    box-shadow: 0 0 15px var(--primary-color);
+}
+
+.form-buttons {
+    display: flex;
+    gap: 20px;
+    justify-content: center;
+}
+
+.landing-btn {
+    flex: 1;
+    padding: 15px;
+    font-size: 18px;
+    font-weight: bold;
+    border: none;
+    border-radius: 20px;
+    cursor: pointer;
+    background: linear-gradient(45deg, var(--primary-color), var(--secondary-color));
+    color: white;
+    box-shadow: 0 0 15px rgba(255,60,172,0.5), 0 0 20px rgba(0,245,255,0.4);
+    transition: all 0.3s ease;
+}
+
+.landing-btn:hover {
+    transform: scale(1.05);
+    box-shadow: 0 0 25px rgba(255,60,172,0.7), 0 0 30px rgba(0,245,255,0.6);
+}
+
+.login-btn {
+    background: linear-gradient(45deg, #00f5ff, #00c3ff);
+}
+
+.signup-btn {
+    background: linear-gradient(45deg, #ff3cac, #ff6ec7);
+}

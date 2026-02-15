@@ -1,0 +1,63 @@
+.card{
+    width: 190px;
+    height: 140px;
+    background-color: #ec0f0f; /* Change color as needed */
+    border-radius: 15px; /* Rounded corners */
+    align-items: center;
+    justify-content: center;
+    color: white;
+    font-size: 24px;
+    text-align: center;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+    background-size: cover; /* מכסה את כל ה-DIV */
+    background-position: center; /* מרכז את התמונה */
+    cursor: pointer; /* משנה את הסמן למצב של לחיצה */
+}
+.container{
+    display: grid;
+    width: 80%;
+    align-self: center;
+    justify-self: center;
+    grid-template-columns: repeat(6,1fr);
+    grid-template-rows: repeat(6,1fr);
+    gap: 10px;
+}
+
+input[type="button"] {
+    margin-top: 20px; /* מרחק מעל כפתור השליחה */
+    padding: 10px 15px; /* ריפוד פנימי לכפתור */
+    font-size: 16px; /* גודל הגופן */
+    background-color: #4CAF50; /* צבע הרקע של הכפתור */
+    color: white; /* צבע הטקסט בכפתור */
+    border: none; /* הסרת גבולות */
+    border-radius: 5px; /* קצוות מעוגלים */
+    cursor: pointer; /* הוויה של סמן מעל הכפתור */
+
+}
+input[type="button"]:hover {
+    background-color: #105513; /* מסך צבע כשמעל הכפתור */
+}
+
+
+body {
+    display: flex;
+    flex-direction: column; /* מסדר את האלמנטים אחד מתחת לשני */
+    align-items: center;    /* ממרכז אופקית */
+    min-height: 100vh;      /* גורם לגוף הדף לתפוס את כל הגובה */
+    margin: 0;
+    text-align: center;     /* ממרכז את הטקסט בתוך הלייבלים */
+    background-color: #f4f4f4; /* צבע רקע עדין */
+    font-family: Arial, sans-serif;
+}
+
+.level {
+    margin-bottom: 20px;    /* רווח בין הטופס ללוח המשחק */
+    padding: 20px;
+    border: 1px solid #ccc;
+    border-radius: 8px;
+    background: white;
+}
+.level label {
+    margin-right: 15px;     /* רווח בין אפשרויות הקושי */
+    font-size: 18px;
+}

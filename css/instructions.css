@@ -1,0 +1,92 @@
+:root {
+    --primary-color: #ff3cac;
+    --secondary-color: #00f5ff;
+    --bg1: #474779;
+    --bg2: #1a1a35;
+    --glass: rgba(255, 255, 255, 0.08);
+}
+
+body {
+    margin: 0;
+    font-family: 'Segoe UI', sans-serif;
+    background: linear-gradient(135deg, var(--bg1), var(--bg2));
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+    color: white;
+}
+
+.instructions-container {
+    text-align: center;
+    width: 90%;
+    max-width: 900px;
+    padding: 40px;
+    border-radius: 20px;
+    background: rgba(33, 21, 79, 0.85);
+    box-shadow: 0 0 40px rgba(0,0,0,0.7);
+}
+
+.instructions-container h1 {
+    font-size: 60px;
+    margin-bottom: 10px;
+    color: var(--primary-color);
+}
+
+.instructions-container h2 {
+    font-size: 36px;
+    margin-bottom: 25px;
+    color: var(--secondary-color);
+}
+
+.instructions-content {
+    text-align: left;
+    font-size: 22px;
+    line-height: 1.8;
+    padding: 20px;
+    margin-bottom: 30px;
+    background: var(--glass);
+    border-radius: 15px;
+    backdrop-filter: blur(10px);
+    box-shadow: 0 0 20px rgba(0,0,0,0.5);
+}
+
+.instructions-content ol {
+    padding-left: 20px;
+}
+
+.instructions-content li {
+    margin-bottom: 15px;
+}
+
+.button-group {
+    display: flex;
+    justify-content: center;
+    gap: 20px;
+}
+
+.start-btn, .back-btn {
+    padding: 15px 30px;
+    font-size: 20px;
+    font-weight: bold;
+    border: none;
+    border-radius: 25px;
+    cursor: pointer;
+    color: white;
+    transition: all 0.3s ease;
+}
+
+.start-btn {
+    background: linear-gradient(45deg, var(--primary-color), var(--secondary-color));
+    box-shadow: 0 0 20px rgba(255,60,172,0.5), 0 0 25px rgba(0,245,255,0.4);
+}
+
+.back-btn {
+    background: linear-gradient(45deg, var(--secondary-color), var(--primary-color));
+    box-shadow: 0 0 20px rgba(0,245,255,0.5), 0 0 25px rgba(255,60,172,0.4);
+}
+
+.start-btn:hover, .back-btn:hover {
+    transform: scale(1.05);
+    box-shadow: 0 0 30px rgba(255,60,172,0.7), 0 0 35px rgba(0,245,255,0.6);
+}
